@@ -94,5 +94,6 @@
           document.getElementById("searchForm").submit()
         }
     </script>
+    @yield('script')
   </body>
 </html>

@@ -24,7 +24,7 @@ class UpdatePostRequest extends FormRequest
     {             
         $post = $this->route('post');
         return  [
-            'title'=>'required|min:4|max:35|unique:posts,title,'.$post->id,
+            'title'=>'required|min:4|max:45|unique:posts,title,'.$post->id,
             'description'=>'required',
             'content'=>'required',
             'category_id'=>'required',

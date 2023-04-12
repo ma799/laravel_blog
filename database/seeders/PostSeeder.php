@@ -14,12 +14,15 @@ class PostSeeder extends Seeder
     /**
      * Run the database seeds.
      */
+    
     public function run(): void
     {
+     $i=1;
      Category::factory(7)->create();
      Tag::factory(6)->create();
      Post::factory(8)->create();
      foreach (Post::all() as $post) {
+        $post->image = 'posts/bg/'.$i++.'.jpg';
         $post->tags()->attach([Tag::all()->random()->id,Tag::all()->random()->id]);
      }
     }

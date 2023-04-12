@@ -30,7 +30,7 @@
 <trix-editor class="mb-5" input="content"></trix-editor>
 
 <label for="published_at" class="form-label fw-bold">Published_at</label>
-<input type="text" value="@isset($post)   {{ $post->published_at }}   @endisset" name="published_at" id="published_at" placeholder="published_at" class="mb-5 form-control">
+<input type="text" value="@isset($post){{ $post->published_at }}@endisset" name="published_at" id="published_at" placeholder="published_at" class="mb-5 form-control">
 
 <label for="category_id" class="form-label fw-bold">category</label>
 <select type="text" value="" name="category_id" id="category_id"  class="mb-5 form-control">
@@ -70,6 +70,8 @@
     </div>
 </div>
 @endsection
+
+
 @section('script')
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -77,20 +79,21 @@
 
 <script>
       $(document).ready(function() {
-            $(function() {
-                  $('#s1').select2();
-                  $('#s2').select2();
-                });
-            $('.tagSelector').select2().val(selectedvalue).trigger("change"); 
+            
+            $('.tagSelector').select2(); 
             flatpickr("#published_at", {  enableTime: true , } );
-            $('#s2').select2();
            
         });
        
 </script>
 @endsection
+
+
+
+
 @section('css')
 <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 @endsection
+

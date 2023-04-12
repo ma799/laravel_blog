@@ -49,13 +49,14 @@
           </div>
         </div>
 
+    
+    
 
         <div class="row">
           <div class="col-lg-8 mx-auto">
-
             <div class="gap-xy-2 mt-6">
               @foreach ($post->tags as $tag)
-              <a class="badge badge-pill badge-secondary" href="#">{{ $tag->name }}</a>
+              <a class="badge badge-pill badge-secondary" href="{{ route('blogPosts.tag',$tag->id) }}">{{ $tag->name }}</a>
               @endforeach
              
             </div>
@@ -69,7 +70,12 @@
     </div>
 
 
-
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+               <div class="addthis_inline_share_toolbox">
+               </div>
+     </div>
+  </div>
     <!--
     |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
     | Comments
@@ -80,31 +86,36 @@
 
         <div class="row">
           <div class="col-lg-8 mx-auto">
-
             <div id="disqus_thread"></div>
-            <script>
-            
-                var disqus_config = function () {
-                this.page.url = "{{  url( 'blog/post/'.$post->id )  }}";  // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = "{{ $post->id }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                };
-                
-                (function() { // DON'T EDIT BELOW THIS LINE
-                var d = document, s = d.createElement('script');
-                s.src = 'https://blog-sass-1.disqus.com/embed.js';
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-                })();
-            </script>
+           
+
             <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
           </div>
         </div>
 
-      </div>
+
+     
     </div>
 
 
 
   </main>
+@endsection
+@section('script')
+<script>
+            
+  var disqus_config = function () {
+  this.page.url = "{{  url( 'blog/post/'.$post->id )  }}";  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.identifier = "{{ $post->id }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  };
+  
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://blog-sass-1.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-64266fe03cce4c68"></script>
 @endsection

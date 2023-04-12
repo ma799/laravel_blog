@@ -24,6 +24,7 @@ class PostFactory extends Factory
              'image' => 'posts/bg/'.$randImg.'.jpg',
              'category_id' => Category::all()->random()->id,
              'user_id' => User::all()->random()->id,
+             'published_at' => now(),
         ];
     }
 }

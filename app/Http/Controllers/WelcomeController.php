@@ -12,18 +12,10 @@ class WelcomeController extends Controller
     
     public function index(){
 
-        $search = request()->query('search');
-         if ($search) {
-            // $posts = Post::where('title','like',"%{$search}%")->simplePaginate(1)->withQueryString();
-            $posts = Post::where('title','like',"%{$search}%")->simplePaginate(1);
-         }else {
-            $posts = Post::simplePaginate(1);
-         }
-    
         return view('welcome',[
             'categories' => Category::all(),
             'tags' => Tag::all(),
-            'posts' => $posts,
+            'posts' => Post::Searched(),
         ]);
 
     }
@@ -31,37 +23,31 @@ class WelcomeController extends Controller
 
     
     public function category(Category $category){
-
-        $search = request()->query('search');
-        if ($search) {
-           $posts = $category->posts()->where('title','like',"%{$search}%")->simplePaginate(1);
-        }else {
-           $posts = $category->posts()->simplePaginate(1);
-        }
    
         return view('blog.category',[
            'categories' => Category::all(),
            'tags' => Tag::all(),
-           'posts' => $posts,
+           'posts' => $category->posts()->searched(),
            'category' => $category,
        ]);
     }
 
     public function tag(Tag $tag){
-        $search = request()->query('search');
-        if ($search) {
-           $posts = $tag->posts()->where('title','like',"%{$search}%")->simplePaginate(1);
-        }else {
-           $posts = $tag->posts()->simplePaginate(1);
-        }
-   
+      //   $search = request()->query('search');
+      //   if ($search) {
+      //      $posts = $tag->posts()->where('title','like',"%{$search}%")->simplePaginate(1);
+      //   }else {
+      //      $posts = $tag->posts()->simplePaginate(1);
+      //   }
         return view('blog.tag',[
            'categories' => Category::all(),
            'tags' => Tag::all(),
-           'posts' => $posts,
+           'posts' => $tag->posts()->searched(),
            'tag' => $tag,
        ]);
     }
+
+   //  comment one
 
 
 }

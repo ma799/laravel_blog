@@ -22,12 +22,12 @@ class CreatePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>'required|min:4|max:35|unique:posts,title',
+            'title'=>'required|min:4|max:45|unique:posts,title',
             'description'=>'required',
             'content'=>'required',
             'image'=>'required|image',
             'published_at'=>'required|date',
-            'category_id'=>'required',
+            'category_id'=>'required',  
         ];
     }
 }

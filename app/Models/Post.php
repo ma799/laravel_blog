@@ -15,6 +15,7 @@ class Post extends Model
     use SoftDeletes;
     use HasFactory;
     protected $fillable = [ 'title', 'description', 'content','category_id', 'image', 'published_at' ,'category_id','user_id'];
+    protected $dates = ['published_at'];
     public function deleteImage(){
         Storage::delete($this->image);
     }
@@ -31,6 +32,16 @@ class Post extends Model
     }
     public function user(){
         return $this->belongsTo(User::class);
+    }
+    public function scopeSearched($query){
+        $search = request()->query('search');
+        if (!$search) {
+            return $query->published()->simplePaginate(2);
+        }
+        return $query->published()->where('title','like',"%{$search}%")->simplePaginate(2);
+    }
+     public function scopePublished($query){
+        return $query->where('published_at','<=',now());
     }
 }
 
