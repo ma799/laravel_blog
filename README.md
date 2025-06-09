@@ -7,9 +7,9 @@
 ## App Screenshot
 
 <p align="center">
-  <img src="./screenshot/screenshot1.png" alt="Demo" width="600">
-  <img src="./screenshot/screenshot2.png" alt="Demo" width="600">
-  <img src="./screenshot/screenshot3.png" alt="Demo" width="600">
+  <img src="./screenshots/screenshot1.png" alt="Demo" width="600">
+  <img src="./screenshots/screenshot2.png" alt="Demo" width="600">
+  <img src="./screenshots/screenshot3.png" alt="Demo" width="600">
 </p>
 
 A sleek, interactive blogging platform where users can create, share, and discuss posts with a clean UI and powerful moderation tools.
