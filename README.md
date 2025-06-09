@@ -8,7 +8,7 @@
 
 <p align="center">
   <img src="./screenshots/screenshot1.png" alt="Demo" width="400">
-  <img src="./screenshots/screenshot2.png" alt="Demo" width="300">
+  <img src="./screenshots/screenshot2.png" alt="Demo" width="310">
   <img src="./screenshots/screenshot3.png" alt="Demo" width="400">
 </p>
 
@@ -41,6 +41,7 @@ A sleek, interactive blogging platform where users can create, share, and discus
 
    
    Create file name .env 
+
    then copy the .env.example to .env file
    
 
@@ -67,7 +68,7 @@ docker compose up
 ```
 
 
-Create a database named VueState
+Create a database named blog
 
 Update your .env with correct credentials
 
@@ -127,6 +128,7 @@ Email: admin@example.com
 Password: admin123
 
 🚀 Features
+
 ✔ Blog Management
 
 Create, edit, delete posts
